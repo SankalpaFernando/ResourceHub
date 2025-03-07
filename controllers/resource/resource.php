@@ -115,7 +115,6 @@ $optional_details = $_POST["optional_details"];
 $building_name = $_POST["building_name"];
 $seating = $_POST["seating"];
 
-print_r($seating);
 
 
 //upload the image 
@@ -125,11 +124,9 @@ $target_file = $target_dir .  basename($uid."-".$_FILES["image"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-print_r($seating);
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  print_r("Sorry, file already exists.");
   $uploadOk = 0;
 }
 
@@ -137,13 +134,11 @@ if (file_exists($target_file)) {
 
 // Allow certain file formats
 if($imageFileType != "jpg") {
-  print_r("Sorry, only JPG files are allowed.");
   $uploadOk = 0;
 }
 
 print_r($target_file);
 
-// Check if $uploadOk is set to 0 by an error
 
 print_r($_FILES["image"]["error"]);
 
@@ -151,10 +146,7 @@ if ($uploadOk == 0) {
   return;
 } else {
   if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-    print_r("File uploaded successfully!");
   } else {
-    print_r("File upload failed.");
-    print_r($_FILES["image"]["error"]);
     return;
   }
 }

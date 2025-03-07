@@ -137,10 +137,6 @@ if($imageFileType != "jpg") {
   $uploadOk = 0;
 }
 
-print_r($target_file);
-
-
-print_r($_FILES["image"]["error"]);
 
 if ($uploadOk == 0) {
   return;
